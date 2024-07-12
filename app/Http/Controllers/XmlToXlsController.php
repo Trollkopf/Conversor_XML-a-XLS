@@ -52,7 +52,9 @@ class XmlToXlsController extends Controller
         foreach ($selectedFields as $field) {
             $title = isset($fieldTitles[$field]) ? $fieldTitles[$field] : $field;
             $sheet->setCellValue($col . '1', $title);
+            // Set bold header
             $sheet->getStyle($col . '1')->getFont()->setBold(true);
+            // Set automatic column width
             $sheet->getColumnDimension($col)->setAutoSize(true);
             $col++;
         }
