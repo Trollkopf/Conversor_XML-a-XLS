@@ -79,7 +79,13 @@ class XmlToXlsController extends Controller
 
                 // Format price fields
                 if ($field === 'price') {
-                    $value = number_format((float) $value, 0, '', '.').' €';
+                    $value = number_format((float) $value, 0, '', '.') . ' €';
+                }
+
+                // Format date fields
+                if ($field === 'date') {
+                    $date = new \DateTime((string) $value);
+                    $value = $date->format('d-m-Y');
                 }
 
                 $sheet->setCellValue($col . $row, (string) $value);
