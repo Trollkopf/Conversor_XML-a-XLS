@@ -17,6 +17,7 @@ class XmlToXlsController extends Controller
     {
         $xmlUrl = $request->input('xml_url');
         $selectedFields = $request->input('fields');
+        $xlsName = $request->input('xls_name');
 
         // Mapa de campos a títulos
         $fieldTitles = [
@@ -103,8 +104,11 @@ class XmlToXlsController extends Controller
         // Freeze first row
         $sheet->freezePane('A2');
 
+         // Generate file name with current date
+         $currentDate = date('d-m-Y');
+         $fileName = $xlsName. '_' . $currentDate . '.xlsx';
+
         $writer = new Xlsx($spreadsheet);
-        $fileName = 'properties.xlsx';
         $writer->save($fileName);
 
         return response()->download($fileName)->deleteFileAfterSend(true);

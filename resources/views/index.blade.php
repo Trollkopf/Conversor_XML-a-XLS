@@ -7,55 +7,32 @@
     <h1>XML to XLS Converter</h1>
     <form action="{{ route('convert') }}" method="POST">
         @csrf
-        <label for="xml_url">REDESP:</label>
+        <label for="xml_url">URL:</label>
         <input type="text" id="xml_url" name="xml_url" value="" required><br><br>
+
+        <label for="xls_name">Nombre para el Archivo de Excel:</label>
+        <input type="text" id="xls_name" name="xls_name" value="" required><br><br>
 
         <label for="fields">Select fields to import:</label><br>
         <input type="checkbox" name="fields[]" value="id" checked> ID<br>
-        <input type="checkbox" name="fields[]" value="date" checked> Date<br>
+        <input type="checkbox" name="fields[]" value="date" checked> Fecha<br>
         <input type="checkbox" name="fields[]" value="ref" checked> Ref<br>
-        <input type="checkbox" name="fields[]" value="price" checked> Price<br>
-        <input type="checkbox" name="fields[]" value="new_build" checked> New Build<br>
-        <input type="checkbox" name="fields[]" value="type" checked> Type<br>
-        <input type="checkbox" name="fields[]" value="town" checked> Town<br>
-        <input type="checkbox" name="fields[]" value="province" checked> Province<br>
-        <input type="checkbox" name="fields[]" value="country" checked> Country<br>
-        <input type="checkbox" name="fields[]" value="location_detail" checked> Location Detail<br>
-        <input type="checkbox" name="fields[]" value="beds" checked> Beds<br>
-        <input type="checkbox" name="fields[]" value="baths" checked> Baths<br>
-        <input type="checkbox" name="fields[]" value="pool" checked> Pool<br>
-        <input type="checkbox" name="fields[]" value="surface_area.built" checked> Built<br>
-        <input type="checkbox" name="fields[]" value="surface_area.plot" checked> Plot<br>
-        <input type="checkbox" name="fields[]" value="energy_rating.consumption" checked> Consumption<br>
-        <input type="checkbox" name="fields[]" value="energy_rating.emissions" checked> Emissions<br>
+        <input type="checkbox" name="fields[]" value="price" checked> Tarifa<br>
+        <input type="checkbox" name="fields[]" value="new_build" checked> Nueva Construcción<br>
+        <input type="checkbox" name="fields[]" value="type" checked> Tipo<br>
+        <input type="checkbox" name="fields[]" value="town" checked> Ciudad<br>
+        <input type="checkbox" name="fields[]" value="province" checked> Provincia<br>
+        <input type="checkbox" name="fields[]" value="country" checked> País<br>
+        <input type="checkbox" name="fields[]" value="location_detail" checked> Localización<br>
+        <input type="checkbox" name="fields[]" value="beds" checked> Dormitorios<br>
+        <input type="checkbox" name="fields[]" value="baths" checked> Aseos<br>
+        <input type="checkbox" name="fields[]" value="pool" checked> Piscina<br>
+        <input type="checkbox" name="fields[]" value="surface_area.built" checked> Construcción<br>
+        <input type="checkbox" name="fields[]" value="surface_area.plot" checked> Parcela<br>
+        <input type="checkbox" name="fields[]" value="energy_rating.consumption" checked> Consumo<br>
+        <input type="checkbox" name="fields[]" value="energy_rating.emissions" checked> Emisiones<br>
         <br>
-        <button type="submit">Convert</button>
-    </form>
-    <form action="{{ route('convert') }}" method="POST">
-        @csrf
-        <label for="xml_url">REDESP ESPECIAL:</label>
-        <input type="text" id="xml_url" name="xml_url" value="" required><br><br>
-
-        <label for="fields">Select fields to import:</label><br>
-        <input type="checkbox" name="fields[]" value="id" checked> ID<br>
-        <input type="checkbox" name="fields[]" value="date" checked> Date<br>
-        <input type="checkbox" name="fields[]" value="ref" checked> Ref<br>
-        <input type="checkbox" name="fields[]" value="price" checked> Price<br>
-        <input type="checkbox" name="fields[]" value="new_build" checked> New Build<br>
-        <input type="checkbox" name="fields[]" value="type" checked> Type<br>
-        <input type="checkbox" name="fields[]" value="town" checked> Town<br>
-        <input type="checkbox" name="fields[]" value="province" checked> Province<br>
-        <input type="checkbox" name="fields[]" value="country" checked> Country<br>
-        <input type="checkbox" name="fields[]" value="location_detail" checked> Location Detail<br>
-        <input type="checkbox" name="fields[]" value="beds" checked> Beds<br>
-        <input type="checkbox" name="fields[]" value="baths" checked> Baths<br>
-        <input type="checkbox" name="fields[]" value="pool" checked> Pool<br>
-        <input type="checkbox" name="fields[]" value="surface_area.built" checked> Built<br>
-        <input type="checkbox" name="fields[]" value="surface_area.plot" checked> Plot<br>
-        <input type="checkbox" name="fields[]" value="energy_rating.consumption" checked> Consumption<br>
-        <input type="checkbox" name="fields[]" value="energy_rating.emissions" checked> Emissions<br>
-        <br>
-        <button type="submit">Convert</button>
+        <button type="submit">Convertir</button>
     </form>
 </body>
 </html>
