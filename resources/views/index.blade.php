@@ -8,7 +8,7 @@
     <form action="{{ route('convert') }}" method="POST">
         @csrf
         <label for="xml_url">REDESP:</label>
-        <input type="text" id="xml_url" name="xml_url" value="https://xml.redsp.net/file/403/23r917h0551/general-zone-1-kyero.xml" required><br><br>
+        <input type="text" id="xml_url" name="xml_url" value="" required><br><br>
 
         <label for="fields">Select fields to import:</label><br>
         <input type="checkbox" name="fields[]" value="id" checked> ID<br>
@@ -34,7 +34,7 @@
     <form action="{{ route('convert') }}" method="POST">
         @csrf
         <label for="xml_url">REDESP ESPECIAL:</label>
-        <input type="text" id="xml_url" name="xml_url" value="https://xml.redsp.net/file/403/23r917h0551/special-zone-1-kyero.xml" required><br><br>
+        <input type="text" id="xml_url" name="xml_url" value="" required><br><br>
 
         <label for="fields">Select fields to import:</label><br>
         <input type="checkbox" name="fields[]" value="id" checked> ID<br>

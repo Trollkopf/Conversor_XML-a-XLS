@@ -53,6 +53,7 @@ class XmlToXlsController extends Controller
             $title = isset($fieldTitles[$field]) ? $fieldTitles[$field] : $field;
             $sheet->setCellValue($col . '1', $title);
             $sheet->getStyle($col . '1')->getFont()->setBold(true);
+            $sheet->getColumnDimension($col)->setAutoSize(true);
             $col++;
         }
 
@@ -93,6 +94,12 @@ class XmlToXlsController extends Controller
             }
             $row++;
         }
+
+        // Create auto filter
+        $sheet->setAutoFilter($sheet->calculateWorksheetDimension());
+
+        // Freeze first row
+        $sheet->freezePane('A2');
 
         $writer = new Xlsx($spreadsheet);
         $fileName = 'properties.xlsx';
