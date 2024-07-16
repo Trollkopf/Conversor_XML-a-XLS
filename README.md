@@ -47,7 +47,7 @@ Max Serratosa - [Trollkopf](https://github.com/Trollkopf)
     php artisan serve
     ```
 1. Abre tu navegador y ve a http://localhost:8000.
-1. La aplicación está pensada para funcionar con los xml proporcionados por [RedSP](https://redsp.net), pero se puede personalizar facilmente teniendo en cuenta las siguientes rutas y acciones:
+1. La aplicación está pensada para funcionar con los xml de importación [kyero](https://help.kyero.com/estate-agents/xml-import-specification), pero se puede personalizar facilmente teniendo en cuenta las siguientes rutas y acciones:
 
 ## Personalización
 
