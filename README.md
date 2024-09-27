@@ -8,7 +8,7 @@ Max Serratosa - [Trollkopf](https://github.com/Trollkopf)
 
 ## Requisitos
 
-- PHP >= 7.3
+- PHP >= 8.2
 - Composer
 - Extensiones de PHP: `mbstring`, `xml`, `zip`
 - Node.js (para Laravel Mix)
