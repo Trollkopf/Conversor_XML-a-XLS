@@ -86,32 +86,6 @@
         <button type="submit">RedSP Especial</button>
     </form>
 <br>
-    <form action="/convert" method="POST">
-        @csrf
-        <input type="text" id="xml_url" name="xml_url"
-            value="https://www.maisonsdemer.com/kyero/thinkspain/xml-export/" hidden>
-        <input type="text" id="xls_name" name="xls_name" value="RedSP_Especial" hidden>
-        <input type="checkbox" name="fields[]" value="id" checked hidden>
-        <input type="checkbox" name="fields[]" value="date" checked hidden>
-        <input type="checkbox" name="fields[]" value="ref" checked hidden>
-        <input type="checkbox" name="fields[]" value="price" checked hidden>
-        <input type="checkbox" name="fields[]" value="new_build" checked hidden>
-        <input type="checkbox" name="fields[]" value="type" checked hidden>
-        <input type="checkbox" name="fields[]" value="town" checked hidden>
-        <input type="checkbox" name="fields[]" value="province" checked hidden>
-        <input type="checkbox" name="fields[]" value="country" checked hidden>
-        <input type="checkbox" name="fields[]" value="location_detail" checked hidden>
-        <input type="checkbox" name="fields[]" value="beds" checked hidden>
-        <input type="checkbox" name="fields[]" value="baths" checked hidden>
-        <input type="checkbox" name="fields[]" value="pool" checked hidden>
-        <input type="checkbox" name="fields[]" value="surface_area.built" checked hidden>
-        <input type="checkbox" name="fields[]" value="surface_area.plot" checked hidden>
-        <input type="checkbox" name="fields[]" value="energy_rating.consumption" checked hidden>
-        <input type="checkbox" name="fields[]" value="energy_rating.emissions" checked hidden>
-        <input type="checkbox" name="fields[]" value="url.es" checked hidden>
-        <button type="submit">Think Spain</button>
-    </form>
-
 
 </body>
 
