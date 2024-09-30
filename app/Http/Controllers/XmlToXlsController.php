@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
@@ -15,11 +14,12 @@ class XmlToXlsController extends Controller
 
     public function convert(Request $request)
     {
+        // dd($request);
         $xmlUrl = $request->input('xml_url');
         $selectedFields = $request->input('fields');
         $xlsName = $request->input('xls_name');
 
-        // Mapa de campos a títulos
+        // Title fields array
         $fieldTitles = [
             'id' => 'ID',
             'date' => 'Fecha',
@@ -37,7 +37,8 @@ class XmlToXlsController extends Controller
             'surface_area.built' => 'Superficie construida',
             'surface_area.plot' => 'Parcela',
             'energy_rating.consumption' => 'Consumo',
-            'energy_rating.emissions' => 'Emisiones'
+            'energy_rating.emissions' => 'Emisiones',
+            'url.es' => 'Enlace'
         ];
 
         $booleanFields = ['new_build', 'pool'];
@@ -92,7 +93,24 @@ class XmlToXlsController extends Controller
                     $value = $date->format('d-m-Y');
                 }
 
-                $sheet->setCellValue($col . $row, (string) $value);
+                // Ensure 'ref' is treated as a string and preserve leading zeros
+                if ($field === 'ref') {
+                    $value = (string) $value;  // Convert to string to preserve leading zeros
+                }
+
+                // Handle hyperlink field
+                if ($field === 'url.es') {
+                    $value = (string) $value;
+
+                    // Fix URL by replacing double slashes (//) after "properties"
+                    $correctedUrl = str_replace('//', '/', $value);
+
+                    // Set the hyperlink with the corrected URL
+                    $sheet->setCellValue($col . $row, 'Enlace');
+                    $sheet->getCell($col . $row)->getHyperlink()->setUrl($correctedUrl);
+                } else {
+                    $sheet->setCellValue($col . $row, (string) $value);
+                }
                 $col++;
             }
             $row++;
@@ -104,11 +122,12 @@ class XmlToXlsController extends Controller
         // Freeze first row
         $sheet->freezePane('A2');
 
-         // Generate file name with current date
-         $currentDate = date('d-m-Y');
-         $fileName = $xlsName. '_' . $currentDate . '.xlsx';
+        // Generate file name with current date
+        $currentDate = date('d-m-Y');
+        $fileName = $xlsName . '_' . $currentDate . '.xlsx';
 
         $writer = new Xlsx($spreadsheet);
+        // dd($fileName);
         $writer->save($fileName);
 
         return response()->download($fileName)->deleteFileAfterSend(true);
